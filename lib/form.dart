@@ -25,7 +25,7 @@ class _MyFormPageState extends State<MyFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Form'),
+        title: const Text('Form'),
       ),
       // Menambahkan drawer menu
       drawer: Drawer(
@@ -107,7 +107,7 @@ class _MyFormPageState extends State<MyFormPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const ListTile(
-                        leading:  Icon(Icons.school),
+                        leading: Icon(Icons.school),
                         title: Text("Jenjang"),
                       ),
                       CheckboxListTile(
@@ -117,8 +117,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           setState(() {
                             jenjangSarjana = value!;
                             jenjang = "Sarjana";
-                            if (value){
-                              jenjangMagister = jenjangDiploma = jenjangDoktor = false;
+                            if (value) {
+                              jenjangMagister =
+                                  jenjangDiploma = jenjangDoktor = false;
                             }
                           });
                         },
@@ -130,8 +131,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           setState(() {
                             jenjangDiploma = value!;
                             jenjang = "Diploma";
-                            if (value){
-                              jenjangMagister = jenjangSarjana = jenjangDoktor = false;
+                            if (value) {
+                              jenjangMagister =
+                                  jenjangSarjana = jenjangDoktor = false;
                             }
                           });
                         },
@@ -143,8 +145,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           setState(() {
                             jenjangMagister = value!;
                             jenjang = "Magister";
-                            if (value){
-                              jenjangDiploma = jenjangSarjana = jenjangDoktor = false;
+                            if (value) {
+                              jenjangDiploma =
+                                  jenjangSarjana = jenjangDoktor = false;
                             }
                           });
                         },
@@ -156,8 +159,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           setState(() {
                             jenjangDoktor = value!;
                             jenjang = "Doktor";
-                            if (value){
-                              jenjangMagister = jenjangSarjana = jenjangDiploma = false;
+                            if (value) {
+                              jenjangMagister =
+                                  jenjangSarjana = jenjangDiploma = false;
                             }
                           });
                         },
@@ -216,10 +220,6 @@ class _MyFormPageState extends State<MyFormPage> {
                   secondary: const Icon(Icons.run_circle_outlined),
                 ),
                 TextButton(
-                  child: const Text(
-                    "Simpan",
-                    style: TextStyle(color: Colors.white),
-                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                   ),
@@ -235,28 +235,28 @@ class _MyFormPageState extends State<MyFormPage> {
                             elevation: 15,
                             child: Container(
                               child: ListView(
-                                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 20, bottom: 20),
                                 shrinkWrap: true,
                                 children: <Widget>[
                                   Center(
-                                    child: Column(
-                                      children: [
-                                        Text('Ringkasan Data'),
-                                        Text('Nama: ' + _namaLengkap),
-                                        Text('Jenjang: ' + jenjang),
-                                        Text('Umur: ' + umur.toString()),
-                                        Text('Kelas: ' + kelasPBP),
-                                        Text('Practice Mode: ' + _nilaiSwitch.toString())
-                                      ],
-                                    )
-                                  ),
-                                  SizedBox(height: 20),
+                                      child: Column(
+                                    children: [
+                                      const Text('Ringkasan Data'),
+                                      Text('Nama: $_namaLengkap'),
+                                      Text('Jenjang: $jenjang'),
+                                      Text('Umur: $umur'),
+                                      Text('Kelas: $kelasPBP'),
+                                      Text('Practice Mode: $_nilaiSwitch')
+                                    ],
+                                  )),
+                                  const SizedBox(height: 20),
                                   // TODO: Munculkan informasi yang didapat dari form
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text('Kembali'),
+                                    child: const Text('Kembali'),
                                   ),
                                 ],
                               ),
@@ -264,7 +264,12 @@ class _MyFormPageState extends State<MyFormPage> {
                           );
                         },
                       );
-                    }                  },
+                    }
+                  },
+                  child: const Text(
+                    "Simpan",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
