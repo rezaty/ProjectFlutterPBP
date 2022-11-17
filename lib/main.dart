@@ -1,5 +1,6 @@
+import 'package:cracker/Page/to_do_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cracker/form.dart';
+import 'package:cracker/Page/form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'PBP C',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -42,7 +43,7 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title = 'Flutter Demo Home Page';
+  final String title = 'Tutorial PBP';
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -72,11 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: const Text('Program Counter'),
       ),
-      // Menambahkan drawer menu
       drawer: Drawer(
         child: Column(
           children: [
@@ -87,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Route menu ke halaman utama
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
             ),
@@ -98,6 +96,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('ToDo'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
                 );
               },
             ),
